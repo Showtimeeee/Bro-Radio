@@ -4,85 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winamp Radio Player</title>
-    <meta name="description" content="Веб-радио плеер в стиле Winamp">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/winamp.css">
-    <link rel="stylesheet" href="styles/responsive.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&family=Courier+New&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&family=Courier+New&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container">
-            <h1 class="site-title">
-                <span class="winamp-text">WINAMP</span>
-                <span class="subtitle">Web Radio Player</span>
-            </h1>
-            <p class="tagline">Ретро-стиль. Современные станции.</p>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container">
+    <!-- Main Container -->
+    <div class="app-container">
         <!-- Winamp Player -->
-        <section class="player-section">
-            <div id="winamp-player"></div>
-        </section>
-
-        <!-- Instructions -->
-        <section class="instructions">
-            <h2>🎮 Управление</h2>
-            <div class="shortcuts-grid">
-                <div class="shortcut">
-                    <kbd>ПРОБЕЛ</kbd>
-                    <span>Play/Pause</span>
+        <div id="winamp-player">
+            <!-- Winamp Header -->
+            <div class="winamp-header">
+                <div class="winamp-title">
+                    <span class="winamp-text">WINAMP</span>
+                    <span class="winamp-version">5.666</span>
                 </div>
-                <div class="shortcut">
-                    <kbd>← →</kbd>
-                    <span>Предыдущая/Следующая</span>
-                </div>
-                <div class="shortcut">
-                    <kbd>+/-</kbd>
-                    <span>Громкость</span>
-                </div>
-                <div class="shortcut">
-                    <kbd>M</kbd>
-                    <span>Mute</span>
-                </div>
-                <div class="shortcut">
-                    <kbd>S</kbd>
-                    <span>Поиск</span>
+                <div class="winamp-controls">
+                    <button class="winamp-btn minimize">─</button>
+                    <button class="winamp-btn maximize">□</button>
+                    <button class="winamp-btn close">×</button>
                 </div>
             </div>
-        </section>
-
-        <!-- About -->
-        <section class="about">
-            <h2>📡 О плеере</h2>
-            <p>Веб-радио плеер в стиле легендарного Winamp. Все станции проверены и работают напрямую в браузере.</p>
-            <p>Исходный код открыт на <a href="https://github.com/your-username/web-radio-player" target="_blank">GitHub</a>.</p>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>© 2024 Winamp Radio Player | Nostalgia meets modern web</p>
-            <p class="footer-note">Для работы требуется современный браузер с поддержкой HTML5 Audio</p>
+            
+            <!-- Main Player -->
+            <div class="winamp-main">
+                <!-- Spectrum Display -->
+                <div class="spectrum-display">
+                    <div class="spectrum-bars"></div>
+                    <div class="station-info" id="station-code-display">STATION: ---</div>
+                </div>
+                
+                <!-- Search Box -->
+                <div class="search-box">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" id="station-search" placeholder="Поиск станции..." autocomplete="off">
+                    <div class="search-results" id="search-results"></div>
+                </div>
+                
+                <!-- Station List Window -->
+                <div class="station-window">
+                    <div class="window-header">
+                        <span>📻 СПИСОК СТАНЦИЙ</span>
+                        <span class="station-count" id="station-count">0/0</span>
+                    </div>
+                    <div class="station-list" id="station-list">
+                        <!-- Stations will be loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Player Controls -->
+                <div class="player-controls">
+                    <div class="control-row">
+                        <button class="ctrl-btn play" id="play-btn" title="Play">▶</button>
+                        <button class="ctrl-btn pause" id="pause-btn" title="Pause">⏸</button>
+                        <button class="ctrl-btn stop" id="stop-btn" title="Stop">⏹</button>
+                        <button class="ctrl-btn prev" id="prev-btn" title="Previous">⏮</button>
+                        <button class="ctrl-btn next" id="next-btn" title="Next">⏭</button>
+                    </div>
+                    <div class="volume-control">
+                        <span class="vol-label">VOL</span>
+                        <input type="range" id="volume-slider" min="0" max="100" value="80" class="vol-slider">
+                        <span id="volume-value">80%</span>
+                    </div>
+                </div>
+                
+                <!-- Status Bar -->
+                <div class="status-bar">
+                    <span id="status-text">Выберите станцию для воспроизведения</span>
+                    <span class="bitrate" id="bitrate-display">--- kbps</span>
+                </div>
+            </div>
         </div>
-    </footer>
-
+        
+        <!-- Quick Help -->
+        <div class="quick-help">
+            <p><kbd>Пробел</kbd> Play/Pause • <kbd>← →</kbd> Переключение • <kbd>+/-</kbd> Громкость</p>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <span class="footer-version">Version 2.0</span>
+                <span class="footer-separator">•</span>
+                <span class="footer-author">Vadim</span>
+                <span class="footer-separator">•</span>
+                <span class="footer-year">© 2026</span>
+            </div>
+        </footer>
+    </div>
+    
     <!-- Hidden Audio Player -->
-    <audio id="audio-player" preload="none" crossorigin="anonymous"></audio>
+    <audio id="audio-player" preload="none"></audio>
 
     <!-- JavaScript -->
     <script src="scripts/stations.js"></script>
