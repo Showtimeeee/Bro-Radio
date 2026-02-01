@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winamp Radio Player</title>
+    <title>Bro-Radio</title>
     
-    <!-- Styles -->
+    <!-- ========== FAVICON ========== -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23000000%22/><text x=%2250%22 y=%2270%22 font-size=%2265%22 text-anchor=%22middle%22 fill=%22%2300FF00%22>📻</text></svg>">
+    
+    <!-- ========== STYLES ========== -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/winamp.css">
     
-    <!-- Fonts -->
+    <!-- ========== FONTS ========== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&family=Courier+New&display=swap" rel="stylesheet">
+    
+    <!-- ========== META TAGS ========== -->
+    <meta name="description" content="Bro-Radio">
+    <meta name="keywords" content="bro-radio, radio, music, online radio, web radio">
+    <meta name="author" content="Vadim">
 </head>
 <body>
     <!-- Main Container -->
     <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="title-main">BRO-RADIO </span>
+                </h1>
+            </div>
+        </header>
+        
         <!-- Winamp Player -->
         <div id="winamp-player">
             <!-- Winamp Header -->
@@ -38,6 +55,13 @@
                 <div class="spectrum-display">
                     <div class="spectrum-bars"></div>
                     <div class="station-info" id="station-code-display">STATION: ---</div>
+                </div>
+                
+                <!-- Tabs for Stations -->
+                <div class="tabs-container">
+                    <button class="tab-btn active" id="all-tab">ВСЕ СТАНЦИИ</button>
+                    <button class="tab-btn" id="favorites-tab"> 🤍 ИЗБРАННОЕ</button>
+                    <button class="tab-btn" id="history-tab">ИСТОРИЯ</button>
                 </div>
                 
                 <!-- Search Box -->
@@ -66,6 +90,7 @@
                         <button class="ctrl-btn stop" id="stop-btn" title="Stop">⏹</button>
                         <button class="ctrl-btn prev" id="prev-btn" title="Previous">⏮</button>
                         <button class="ctrl-btn next" id="next-btn" title="Next">⏭</button>
+                        <button class="ctrl-btn favorite" id="favorite-btn" title="Добавить в избранное">❤</button>
                     </div>
                     <div class="volume-control">
                         <span class="vol-label">VOL</span>
@@ -84,19 +109,27 @@
         
         <!-- Quick Help -->
         <div class="quick-help">
-            <p><kbd>Пробел</kbd> Play/Pause • <kbd>← →</kbd> Переключение • <kbd>+/-</kbd> Громкость</p>
+            <p><kbd>Пробел</kbd> Play/Pause • <kbd>← →</kbd> Переключение • <kbd>+/-</kbd> Громкость • <kbd>F</kbd> Избранное</p>
         </div>
         
         <!-- Footer -->
         <footer class="app-footer">
-            <div class="footer-content">
-                <span class="footer-version">Version 2.0</span>
+        <div class="footer-content">
+            <div class="footer-info">
+                
+                <span class="footer-version">v2.0</span>
                 <span class="footer-separator">•</span>
-                <span class="footer-author">Vadim</span>
+                <span class="footer-separator">2026</span>
                 <span class="footer-separator">•</span>
-                <span class="footer-year">© 2026</span>
+                <span class="footer-author">© Vadim</span>
             </div>
-        </footer>
+            
+            <div class="footer-contact">
+                <span class="footer-email">seevaa57@gmail.com</span>
+            </div>
+        </div>
+    </footer>
+
     </div>
     
     <!-- Hidden Audio Player -->
