@@ -1,0 +1,199 @@
+/* styles/main.css */
+
+/* Reset и базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Цветовая схема */
+    --bg-dark: #0a0a0a;
+    --bg-darker: #050505;
+    --bg-medium: #1a1a1a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #888;
+    --accent-green: #00cc00;
+    --accent-blue: #3399ff;
+    --border-color: #333;
+    
+    /* Размеры */
+    --container-width: 1200px;
+    --border-radius: 8px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Header */
+.site-header {
+    background: linear-gradient(90deg, #000033 0%, #000066 100%);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 3px solid var(--accent-green);
+    text-align: center;
+}
+
+.site-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.winamp-text {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent-green);
+    text-shadow: 0 0 10px rgba(0, 204, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
+.tagline {
+    margin-top: var(--spacing-sm);
+    font-size: 1.1rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Main Content */
+main {
+    padding: var(--spacing-xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.player-section {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* Instructions */
+.instructions {
+    background: rgba(20, 20, 30, 0.6);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.instructions h2 {
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.shortcut {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-green);
+    transition: transform 0.2s;
+}
+
+.shortcut:hover {
+    transform: translateX(5px);
+}
+
+.shortcut kbd {
+    background: var(--bg-medium);
+    color: var(--accent-green);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* About */
+.about {
+    background: rgba(20, 20, 30, 0.6);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.about h2 {
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.about p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+}
+
+.about a {
+    color: var(--accent-green);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-green);
+    transition: color 0.2s;
+}
+
+.about a:hover {
+    color: #00ff00;
+    border-bottom: 1px solid #00ff00;
+}
+
+/* Footer */
+.site-footer {
+    background: var(--bg-darker);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.site-footer p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}

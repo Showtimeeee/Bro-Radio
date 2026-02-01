@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winamp Radio Player</title>
+    <meta name="description" content="Веб-радио плеер в стиле Winamp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/winamp.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&family=Courier+New&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">
+                <span class="winamp-text">WINAMP</span>
+                <span class="subtitle">Web Radio Player</span>
+            </h1>
+            <p class="tagline">Ретро-стиль. Современные станции.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Winamp Player -->
+        <section class="player-section">
+            <div id="winamp-player"></div>
+        </section>
+
+        <!-- Instructions -->
+        <section class="instructions">
+            <h2>🎮 Управление</h2>
+            <div class="shortcuts-grid">
+                <div class="shortcut">
+                    <kbd>ПРОБЕЛ</kbd>
+                    <span>Play/Pause</span>
+                </div>
+                <div class="shortcut">
+                    <kbd>← →</kbd>
+                    <span>Предыдущая/Следующая</span>
+                </div>
+                <div class="shortcut">
+                    <kbd>+/-</kbd>
+                    <span>Громкость</span>
+                </div>
+                <div class="shortcut">
+                    <kbd>M</kbd>
+                    <span>Mute</span>
+                </div>
+                <div class="shortcut">
+                    <kbd>S</kbd>
+                    <span>Поиск</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about">
+            <h2>📡 О плеере</h2>
+            <p>Веб-радио плеер в стиле легендарного Winamp. Все станции проверены и работают напрямую в браузере.</p>
+            <p>Исходный код открыт на <a href="https://github.com/your-username/web-radio-player" target="_blank">GitHub</a>.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2024 Winamp Radio Player | Nostalgia meets modern web</p>
+            <p class="footer-note">Для работы требуется современный браузер с поддержкой HTML5 Audio</p>
+        </div>
+    </footer>
+
+    <!-- Hidden Audio Player -->
+    <audio id="audio-player" preload="none" crossorigin="anonymous"></audio>
+
+    <!-- JavaScript -->
+    <script src="scripts/stations.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>

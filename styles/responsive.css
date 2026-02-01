@@ -1,0 +1,156 @@
+/* styles/responsive.css */
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .winamp-text {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    #winamp-player {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .player-section {
+        padding: var(--spacing-sm);
+    }
+    
+    .shortcuts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .shortcut {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-xs);
+    }
+    
+    .control-row {
+        gap: 5px;
+    }
+    
+    .ctrl-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+    
+    .volume-control {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .vol-slider {
+        width: 200px;
+    }
+}
+
+/* Планшеты (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #winamp-player {
+        width: 450px;
+    }
+    
+    .shortcuts-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Маленькие экраны (до 480px) */
+@media (max-width: 480px) {
+    .winamp-text {
+        font-size: 2rem;
+    }
+    
+    .site-header {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .shortcuts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .station-list {
+        max-height: 150px;
+    }
+    
+    .control-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Большие экраны (более 1200px) */
+@media (min-width: 1200px) {
+    #winamp-player {
+        width: 450px;
+    }
+}
+
+/* Ориентация landscape для мобильных */
+@media (max-height: 600px) and (orientation: landscape) {
+    .site-header {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .winamp-text {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: var(--spacing-md) 0;
+        gap: var(--spacing-md);
+    }
+    
+    .player-section {
+        padding: var(--spacing-sm);
+    }
+    
+    .instructions, .about {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Высокое DPI экраны */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .winamp-text {
+        text-shadow: 0 0 15px rgba(0, 204, 0, 0.7);
+    }
+    
+    #winamp-player {
+        border-width: 1px;
+    }
+    
+    .winamp-btn, .ctrl-btn {
+        border-width: 1px;
+    }
+}
+
+/* Печать */
+@media print {
+    .site-header, .instructions, .about, .site-footer,
+    .winamp-header, .player-controls, .search-box {
+        display: none;
+    }
+    
+    #winamp-player {
+        border: none;
+        box-shadow: none;
+        width: 100%;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+}
