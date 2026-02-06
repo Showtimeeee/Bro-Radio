@@ -70,11 +70,9 @@
     color: white;
 }
 
-
-
-/* Spectrum Display */
+/* Spectrum Display - Оптимизированная версия */
 .spectrum-display {
-    background: black;
+    background: #000;
     height: 60px;
     margin: 10px;
     border: 1px solid var(--border-color);
@@ -86,8 +84,17 @@
     height: 100%;
     display: flex;
     align-items: flex-end;
-    padding: 5px;
+    justify-content: center;
+    padding: 0 10px;
     gap: 2px;
+}
+
+.spectrum-bar {
+    min-width: 4px;
+    background: linear-gradient(to top, #00ff00, #009900);
+    border-radius: 1px;
+    transition: height 0.25s ease-out;
+    will-change: height;
 }
 
 .station-info {
@@ -95,13 +102,14 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 3px 8px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 4px 8px;
     font-family: 'Courier New', monospace;
-    font-size: 12px;
+    font-size: 11px;
     color: #00ff00;
     text-align: center;
     letter-spacing: 1px;
+    border-top: 1px solid #333;
 }
 
 /* Tabs */
@@ -314,7 +322,6 @@
     color: #ffcc00;
 }
 
-
 .volume-control {
     display: flex;
     align-items: center;
@@ -408,12 +415,6 @@
 }
 
 /* Animations */
-@keyframes spectrumPulse {
-    0% { height: 20%; }
-    50% { height: 80%; }
-    100% { height: 20%; }
-}
-
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
@@ -436,6 +437,15 @@
     
     .station-window {
         height: 200px;
+    }
+    
+    .spectrum-display {
+        height: 50px;
+        margin: 8px;
+    }
+    
+    .spectrum-bar {
+        min-width: 3px;
     }
     
     .control-row {
@@ -468,6 +478,14 @@
         height: 180px;
     }
     
+    .spectrum-display {
+        height: 45px;
+    }
+    
+    .spectrum-bar {
+        min-width: 2px;
+    }
+    
     .ctrl-btn {
         width: 32px;
         height: 32px;
@@ -480,7 +498,7 @@
 }
 
 .footer-contact .footer-email {
-    color: #00FF00; /* Ярко-зеленый */
+    color: #00FF00;
     font-family: Verdana, sans-serif;
     font-size: 14px;
     text-decoration: none;
