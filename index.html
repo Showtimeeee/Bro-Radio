@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bro-Radio</title>
     
+    <!-- ========== PRELOAD & PREFETCH ========== -->
+    <link rel="preconnect" href="https://radio.garden">
+    <link rel="preconnect" href="https://ice1.somafm.com">
+    <link rel="preconnect" href="https://icecast-vgtrk.cdnvideo.ru">
+    <link rel="preconnect" href="https://ep128.hostingradio.ru">
+    <link rel="preconnect" href="https://nashe1.hostingradio.ru">
+    
     <!-- ========== FAVICON ========== -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23000000%22/><text x=%2250%22 y=%2270%22 font-size=%2265%22 text-anchor=%22middle%22 fill=%22%2300FF00%22>📻</text></svg>">
     
@@ -55,7 +62,7 @@
                 <!-- Tabs for Stations -->
                 <div class="tabs-container">
                     <button class="tab-btn active" id="all-tab">📡ВСЕ СТАНЦИИ</button>
-                    <button class="tab-btn" id="favorites-tab"> 🤍 ИЗБРАННОЕ</button>
+                    <button class="tab-btn" id="favorites-tab">🤍 ИЗБРАННОЕ</button>
                     <button class="tab-btn" id="history-tab">📜ИСТОРИЯ</button>
                 </div>
                 
@@ -109,22 +116,20 @@
         
         <!-- Footer -->
         <footer class="app-footer">
-        <div class="footer-content">
-            <div class="footer-info">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <span class="footer-version">v2.1</span>
+                    <span class="footer-separator">•</span>
+                    <span class="footer-separator">2026</span>
+                    <span class="footer-separator">•</span>
+                    <span class="footer-author">© Vadim</span>
+                </div>
                 
-                <span class="footer-version">v2.1</span>
-                <span class="footer-separator">•</span>
-                <span class="footer-separator">2026</span>
-                <span class="footer-separator">•</span>
-                <span class="footer-author">© Vadim</span>
+                <div class="footer-contact">
+                    <span class="footer-email">seevaa57@gmail.com</span>
+                </div>
             </div>
-            
-            <div class="footer-contact">
-                <span class="footer-email">seevaa57@gmail.com</span>
-            </div>
-        </div>
-    </footer>
-
+        </footer>
     </div>
     
     <!-- Hidden Audio Player -->
@@ -132,7 +137,7 @@
 
     <!-- JavaScript -->
     <script src="scripts/stations.js"></script>
-    <script src="scripts/utils.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/utils.js" defer></script>
+    <script src="scripts/app.js" defer></script>
 </body>
 </html>
