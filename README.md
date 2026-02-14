@@ -4,7 +4,7 @@
 
 ---
 
-🌐 **Live:** [https://bro-radio.netlify.app/](https://bro-radio.netlify.app/)
+🌐 **Live:** [https://bro-radio.onrender.com/](https://bro-radio.onrender.com/)
 
 
 ## ✨ Особенности
