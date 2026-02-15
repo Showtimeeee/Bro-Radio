@@ -27,6 +27,14 @@ function initApp() {
     setCurrentYear();
     
     initPlayer();
+    
+    // Настройка медиа-сессии для уведомлений
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('play', () => playAudio());
+        navigator.mediaSession.setActionHandler('pause', () => pauseAudio());
+        navigator.mediaSession.setActionHandler('previoustrack', () => prevStation());
+        navigator.mediaSession.setActionHandler('nexttrack', () => nextStation());
+    }
 }
 
 function setupAnimationOptimization() {
@@ -222,8 +230,24 @@ function selectStation(station) {
     
     updateFavoriteButton();
     
+    // Обновляем метаданные для медиа-сессии
+    updateMediaSession();
+    
     if (isPlaying) {
         playAudio();
+    }
+}
+
+function updateMediaSession() {
+    if ('mediaSession' in navigator && currentStation) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: currentStation.code,
+            artist: 'Bro-Radio',
+            album: 'Online Radio',
+            artwork: [
+                { src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="black"/><text x="50" y="70" font-size="65" text-anchor="middle" fill="%2300FF00">📻</text></svg>', sizes: '96x96', type: 'image/svg+xml' }
+            ]
+        });
     }
 }
 
@@ -254,6 +278,9 @@ function playAudio() {
             document.getElementById('status-text').textContent = `▶ ${currentStation.code}`;
             document.getElementById('play-btn').classList.add('playing');
             
+            // Обновляем метаданные
+            updateMediaSession();
+            
             const selectedItem = document.querySelector(`.station-item[data-code="${currentStation.code}"]`);
             if (selectedItem) {
                 selectedItem.classList.add('playing');
@@ -276,6 +303,11 @@ function pauseAudio() {
     document.querySelectorAll('.station-item.playing').forEach(item => {
         item.classList.remove('playing');
     });
+    
+    // Очищаем метаданные
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = null;
+    }
 }
 
 function stopAudio() {
@@ -288,6 +320,11 @@ function stopAudio() {
     document.querySelectorAll('.station-item.playing').forEach(item => {
         item.classList.remove('playing');
     });
+    
+    // Очищаем метаданные
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = null;
+    }
 }
 
 function nextStation() {
