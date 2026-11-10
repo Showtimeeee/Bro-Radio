@@ -4,7 +4,7 @@
 
 ---
 
-🌐 **Live:** [https://bro-radio.onrender.com/](https://bro-radio.onrender.com/)
+🌐 **Live:** [https://bro-radio.tuqo.app/](https://bro-radio.tuqo.app/)
 
 
 ## ✨ Особенности
